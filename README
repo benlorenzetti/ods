@@ -1,0 +1,33 @@
+Hi Wenjing and Prof. Papautsky, I hope you are able to find this easily.
+
+This is my first time using Git and Github, which are often used to
+facilitate collaboration on software projects. It will be useful for
+us for three reasons:
+
+  (1) you two can easily see what changes I am making to help track
+      my progress with the software,
+  (2) creates an online backup of the code, and
+  (3) allows me to program from different computers.
+
+Right now I am working on an ODS class, which will help the program
+open and save open document spreadsheet files. These can be opened
+and edited in Excel. This will be useful for importing test parameters
+from a file and for saving data files.
+
+ODS files are much simpler than .XLSX files but they are still not
+pretty. First, a single .ODS file actually contains multiple files
+that are all zipped together and compressed. So the first step for
+reading and editing them is decompression and unzipping. If you want
+to see this for yourself, try this:
+
+  (1) open up a new file in excel and type in a few cells. Save it
+      with an .ods extension.
+  (2) in file explorer, rename the file from "something.ods" to
+      "something.zip".
+  (3) finally, you can open this file with whatever zip program
+      your PC has by default. Usually it is peazip or 7zip. This will
+      show you all of the files that make up and ODS when it is
+      uncompressed.
+
+So this is the problem I am currently solving. After I complete this
+class, I can integrate it pretty quickly into the main program.
