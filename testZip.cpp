@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    zip zip1;
+    zipFile zip1;
     cout << "subFiles.size()="
         << zip1.open ("testZipSpreadsheet.ods")
         << endl;
