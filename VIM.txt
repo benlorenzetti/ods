@@ -1,0 +1,8 @@
+To setup vim to use only 4 spaces per tab, follow these instructions:
+1. edit/create a new file with $vim ~/.vimrc
+2. Add the following four lines:
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set noexpandtab
+3. :w :q
