@@ -3,8 +3,7 @@
 using namespace std;
 
 int main() {
-    zipFile zip1;
-    cout << "subFiles.size()="
-        << zip1.open ("testZipSpreadsheet.ods")
-        << endl;
+    zip zip1;
+	zip1.open ("testZipSpreadsheet.ods");
+	cout << "there are " << zip1.unzip() << " local files.\n";
 }
