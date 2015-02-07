@@ -28,11 +28,14 @@ protected:
 	);
 private:
 	vector<unsigned char> raw;
+	vector<int> diskBreakPoints;
 	vector<record> directory;
 	vector<record> files;
 };
 
 void zip::open (string filename) {
+	// Record the disk break point for this disk
+	diskBreakPoints.push_back (raw.size ());
 	// open file, load contents into ram vector, then close file
     fstream fs;
     char cFilename[1000];
@@ -62,8 +65,19 @@ int zip::unzip () {
 	if (ecdrIndex < 0)
 		return 0;	// fail gracefully if EOCDR not found
 
+	// find the central directory and check for supported/valid format
+	unsigned int cdStartDisk = readBytes (2, raw, ecdrIndex + 6);
+	unsigned int cdEntries = readBytes (2, raw, ecdrIndex + 10);
+	unsigned long cdSize = readBytes (4, raw, ecdrIndex + 12);
+	unsigned long cdOffset = readBytes (4, raw, ecdrIndex + 16);
+	if (cdStartDisk > diskBreakPoints.size())
+		return 0;
+	else
+		cdOffset += diskBreakPoints.at (cdStartDisk);
+	if (cdOffset + cdSize > raw.size())
+		return 0;	
 
-    return raw.size();
+    return cdEntries;
 }
 
 void zip::save (string filename) {
